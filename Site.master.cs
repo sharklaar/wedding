@@ -66,7 +66,7 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Page.Title = "Shark and Natalie are getting married! Rejoice!";
     }
 
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

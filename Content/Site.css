@@ -18,6 +18,11 @@ textarea {
     max-width: 280px;
 }
 
+h1, h2, h3, h4 {
+    font-family: Parisienne;
+    text-align: center;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
