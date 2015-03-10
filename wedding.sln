@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "wedding", "http://localhost:61211", "{4CDC4FB7-34EB-4D48-B38D-592A9F0A978C}"
 	ProjectSection(WebsiteProperties) = preProject
