@@ -19,8 +19,10 @@ public class DatabaseHelper
         
 	}
 
-    public void GetGuestsWithUsername(string username)
+    public List<Guest> GetGuestsWithUsername(string username)
     {
+        var GuestList = new List<Guest>();
+
         _connectionString = ConfigurationManager.ConnectionStrings["WeddingDb"].ConnectionString;
         var connection = new SqlConnection(_connectionString);
         connection.Open();
@@ -34,12 +36,46 @@ public class DatabaseHelper
 
             while (reader.Read())
             {
-                var ceremonyPermitted = reader["CeremonyPermitted"];
+                var guest = new Guest();
+
+                guest.Username = username;
+                guest.Id = int.Parse(reader["ID"].ToString());
+                guest.Name = reader["Name"].ToString();
+                guest.AttendingCeremony = GetBooleanFromBit(reader["AttendingCeremony"].ToString());
+                guest.AttendingMeal = GetBooleanFromBit(reader["AttendingMeal"].ToString());
+                guest.AttendingReception = GetBooleanFromBit(reader["AttendingReception"].ToString());
+                guest.CeremonyPermitted = GetBooleanFromBit(reader["CeremonyPermitted"].ToString());
+                guest.MealPermitted = GetBooleanFromBit(reader["MealPermitted"].ToString());
+                guest.ReceptionPermitted = GetBooleanFromBit(reader["ReceptionPermitted"].ToString());
+                guest.Dessert = reader["Dessert"].ToString();
+                guest.Main = reader["Main"].ToString();
+                guest.Starter = reader["Starter"].ToString();
+
+                GuestList.Add(guest);
             }
+
+            return GuestList;
         }
         finally
         {
             connection.Close();
         }
+    }
+
+    private bool GetBooleanFromBit(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return false;
+
+        if (input == "1")
+            return true;
+
+        if (input == "true")
+            return true;
+
+        if (input == "True")
+            return true;
+
+        return false;
     }
 }

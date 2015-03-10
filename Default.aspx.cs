@@ -11,4 +11,11 @@ public partial class _Default : Page
     {
 
     }
+
+    public void Rsvp_Onclick(object sender, EventArgs e)
+    {
+        var url = string.Format("/Rsvp?username={0}", usernameInput.Text);
+        Response.Redirect(url);        
+
+    }
 }

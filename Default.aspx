@@ -14,9 +14,19 @@
                 Marc and Natalie will be wed at the registry office in Stamford on September 26th 2015. 
             </p>
             <p>
-                <a class="btn btn-default" href="/rsvp/">RSVP Now!</a>
+                <asp:TextBox id="usernameInput" runat="server" placeholder="Your username" />
+                <asp:button runat="server" 
+                    id="btnRsvp" 
+                    class="btn btn-default" 
+                    Text="RSVP NOW!"
+                    OnClick="Rsvp_Onclick"/>
             </p>
         </div>
 
     </div>
+    <script>
+        $('#btnRsvp').click(function () {
+
+        });
+    </script>
 </asp:Content>

@@ -10,6 +10,11 @@ public partial class Contact : Page
     protected void Page_Load(object sender, EventArgs e)
     {
         var helper = new DatabaseHelper();
-        helper.GetGuestsWithUsername("bendonna");
+
+        var username = Request.QueryString["username"];
+
+        var guestList = new DatabaseHelper().GetGuestsWithUsername(username);
+        
+        
     }
 }
