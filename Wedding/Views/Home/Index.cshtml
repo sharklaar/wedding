@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Wedding.Models.Guest
+
+<div class="jumbotron">
+    <h1>Shark and Natalie are Getting Married...!</h1>
+    <p class="lead">That's right, Natalie will be becoming a Daffern very soon...</p>
+    @using (Html.BeginForm("Rsvp", "Home"))
+    {
+        @Html.TextBoxFor(m => m.Username)
+        <input type="submit" value="RSVP!" />
+    }
+</div>
