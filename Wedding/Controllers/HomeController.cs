@@ -31,7 +31,7 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
 
         public ActionResult Rsvp(GuestList guestList)
         {
-            if (guestList == null || guestList.Guests == null || guestList.Guests.Count == 0)
+            if (guestList == null || guestList.Username == null)
             {
                 return RedirectToAction("Index");
             }
@@ -52,9 +52,11 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
 
             var helper = new DatabaseHelper();
 
-            helper.SubmitGuestDetails(new GuestList { Guests = guests });
+            var guestList = new GuestList { Guests = guests };
 
-            return View();
+            helper.SubmitGuestDetails(guestList);
+
+            return View(guestList);
         }
     }
 }
