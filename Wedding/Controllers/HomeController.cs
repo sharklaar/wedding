@@ -29,25 +29,25 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
             return View();
         }
 
-        public ActionResult Rsvp(Guest guest)
+        public ActionResult Rsvp(GuestList guestList)
         {
             var helper = new DatabaseHelper();
 
             var guests = new GuestList();
-            guests.Guests = helper.GetGuestsWithUsername(guest.Username);
+            guests.Guests = helper.GetGuestsWithUsername(guestList.Username);
            
             return View(guests);
         }
 
         [HttpPost]
-        public ActionResult SubmitGuests(GuestList guests)
+        public ActionResult SubmitGuests(List<Guest> guests)
         {
-            if (guests == null)
+            if (guests == null || guests.Count == 0)
                 return View();
 
             var helper = new DatabaseHelper();
 
-            helper.SubmitGuestDetails(guests);
+            helper.SubmitGuestDetails(new GuestList { Guests = guests });
 
             return View();
         }

@@ -20,7 +20,30 @@ namespace Wedding.Helpers
 
         public void SubmitGuestDetails(GuestList guests)
         {
-            
+            _connectionString = ConfigurationManager.ConnectionStrings["WeddingDb"].ConnectionString;
+            var connection = new SqlConnection(_connectionString);
+            connection.Open();
+            try
+            {
+                foreach (var guest in guests.Guests)
+                {
+                    var cmd = new SqlCommand("SubmitGuestDetails", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", guest.Id);
+                    cmd.Parameters.AddWithValue("@AttendingCeremony", guest.AttendingCeremony);
+                    cmd.Parameters.AddWithValue("@AttendingMeal", guest.AttendingMeal);
+                    cmd.Parameters.AddWithValue("@AttendingReception", guest.AttendingReception);
+                    cmd.Parameters.AddWithValue("@Starter", guest.Starter);
+                    cmd.Parameters.AddWithValue("@Main", guest.Main);
+                    cmd.Parameters.AddWithValue("@Dessert", guest.Dessert);
+
+                    var reader = cmd.ExecuteNonQuery();                    
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public List<Guest> GetGuestsWithUsername(string username)

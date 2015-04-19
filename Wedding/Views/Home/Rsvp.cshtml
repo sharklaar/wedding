@@ -11,15 +11,100 @@
 @using (Html.BeginForm("SubmitGuests", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>GuestList</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @foreach (var guest in Model.Guests)
+
+        @for (var i = 0; i < Model.Guests.Count; i++)
         {
-            @Html.Partial("~/Views/Partials/IndividualGuest.cshtml", guest)
+            <div class="form-horizontal">
+                <h4>Guest</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Guests[i].Id)
+                @Html.HiddenFor(model => model.Guests[i].CeremonyPermitted)
+                @Html.HiddenFor(model => model.Guests[i].MealPermitted)
+                @Html.HiddenFor(model => model.Guests[i].ReceptionPermitted)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Guests[i].Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Guests[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Guests[i].Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @if (Model.Guests[i].CeremonyPermitted)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Guests[i].AttendingCeremony, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Guests[i].AttendingCeremony)
+                                @Html.ValidationMessageFor(model => model.Guests[i].AttendingCeremony, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Guests[i].MealPermitted)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Guests[i].AttendingMeal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Guests[i].AttendingMeal)
+                                @Html.ValidationMessageFor(model => model.Guests[i].AttendingMeal, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Guests[i].ReceptionPermitted)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Guests[i].AttendingReception, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Guests[i].AttendingReception)
+                                @Html.ValidationMessageFor(model => model.Guests[i].AttendingReception, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Guests[i].MealPermitted)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Guests[i].Starter, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Guests[i].Starter, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Guests[i].Starter, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Guests[i].Main, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Guests[i].Main, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Guests[i].Main, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Guests[i].Dessert, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Guests[i].Dessert, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Guests[i].Dessert, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+                
+            </div>
         }
+
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
