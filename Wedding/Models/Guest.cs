@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Wedding.Models
 {
@@ -9,9 +10,29 @@ namespace Wedding.Models
     {
         public Guest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            StarterOptions = new SelectList(
+                new[]{
+                    new  { Text = "Melons", Value = "Melons" }, 
+                    new  { Text = "Soup", Value = "Soup" }
+                },
+                "Value",
+                "Text");
+
+            MainOptions = new SelectList(
+                new[]{
+                    new  { Text = "Chicken", Value = "Chicken" }, 
+                    new  { Text = "Beef", Value = "Beef" }
+                },
+                "Value",
+                "Text");
+
+            DessertOptions = new SelectList(
+                new[]{
+                    new  { Text = "Chocolate", Value = "Chocolate" }, 
+                    new  { Text = "Ice cream", Value = "IceCream" }
+                },
+                "Value",
+                "Text");
         }
 
         public int Id { get; set; }
@@ -26,5 +47,9 @@ namespace Wedding.Models
         public bool CeremonyPermitted { get; set; }
         public bool MealPermitted { get; set; }
         public bool ReceptionPermitted { get; set; }
+
+        public SelectList StarterOptions { get; set; }
+        public SelectList MainOptions { get; set; }
+        public SelectList DessertOptions { get; set; }
     }
 }
