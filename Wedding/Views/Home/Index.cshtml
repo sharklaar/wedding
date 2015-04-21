@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Wedding.Models.GuestList
+
+<div class="jumbotron">
+    <h1>Shark and Natalie are Getting Married...!</h1>
+    <p class="lead">That's right, Natalie will be becoming a Daffern very soon...</p>
+    <p class="lead">On your invite, you'll have been given a username - enter your username in the box below and click 'RSVP!'</p>
+    @using (Html.BeginForm("Rsvp", "Home", FormMethod.Post, new { @Class = "usernameForm" }))
+    {
+        @Html.TextBoxFor(m => m.Username, new { @placeholder = "Enter your username here" })
+        <input type="submit" value="RSVP!"/>
+    }
+</div>

@@ -1,0 +1,17 @@
+﻿@model Wedding.Models.GuestList
+
+@{
+    ViewBag.Title = "SubmitGuests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SubmitGuests</h2>
+
+<div>
+    <h2>Thanks!</h2>
+    <p>You've sent us your reply, that means you're great. </p>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
