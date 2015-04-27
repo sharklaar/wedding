@@ -12,24 +12,30 @@ namespace Wedding.Models
         {
             StarterOptions = new SelectList(
                 new[]{
-                    new  { Text = "Melons", Value = "Melons" }, 
-                    new  { Text = "Soup", Value = "Soup" }
+                    new  { Text = "Vegetable Soup", Value = "soup" }, 
+                    new  { Text = "Melon Balls", Value = "balls" },
+                    new  { Text = "Prawn Cocktail", Value = "cocktail" },
+                    new  { Text = "Breaded Garlic Mushrooms", Value = "shrooms" }
                 },
                 "Value",
                 "Text");
 
             MainOptions = new SelectList(
                 new[]{
-                    new  { Text = "Chicken", Value = "Chicken" }, 
-                    new  { Text = "Beef", Value = "Beef" }
+                    new  { Text = "Roast Beef", Value = "beef" }, 
+                    new  { Text = "Roast Pork", Value = "pork" },
+                    new  { Text = "Roast Turkey", Value = "turkey" },
+                    new  { Text = "Vegetable Wellington", Value = "welly" }
                 },
                 "Value",
                 "Text");
 
             DessertOptions = new SelectList(
                 new[]{
-                    new  { Text = "Chocolate", Value = "Chocolate" }, 
-                    new  { Text = "Ice cream", Value = "IceCream" }
+                    new  { Text = "Apple Crumble w/Custard", Value = "crumble" }, 
+                    new  { Text = "Raspberry Pavlova", Value = "pavlova" },
+                    new  { Text = "Chocolate Fudge Cake", Value = "fudge" },
+                    new  { Text = "Ice Cream", Value = "iceCream" }
                 },
                 "Value",
                 "Text");

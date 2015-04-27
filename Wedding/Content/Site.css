@@ -56,4 +56,30 @@ form.usernameForm input {
   display: inline-block;
   margin: 5px 2.5%;
 }
+.menu-page {
+  text-align: center;
+}
+.menu-page h2,
+.menu-page h3,
+.menu-page h4 {
+  font-weight: bold;
+}
+.menu-page h2 {
+  margin: 15px 0;
+  font-size: 3rem;
+  text-decoration: underline;
+}
+.menu-page h3 {
+  margin: 10px 0;
+  text-decoration: underline;
+}
+label.control-label {
+  display: inline-block;
+}
+.check-box.input {
+  display: inline-block;
+}
+.meal-option {
+  padding-top: 7px;
+}
 /*# sourceMappingURL=Site.css.map */

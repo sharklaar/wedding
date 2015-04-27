@@ -15,9 +15,9 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Menu()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Stuff you can eat";
 
             return View();
         }
