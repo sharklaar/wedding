@@ -369,6 +369,7 @@
     <Content Include="Views\Home\Rsvp.cshtml" />
     <Content Include="Views\Partials\IndividualGuest.cshtml" />
     <Content Include="Views\Home\SubmitGuests.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
