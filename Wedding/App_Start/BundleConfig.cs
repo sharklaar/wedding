@@ -21,6 +21,13 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);
 
+            var rsvpBundle = new ScriptBundle("~/bundles/rsvp");
+            rsvpBundle.Include("~/Scripts/rsvp.js");
+            rsvpBundle.Transforms.Add(jsTransformer);
+            rsvpBundle.Orderer = nullOrderer;
+            bundles.Add(rsvpBundle);
+
+
             var jqueryBundle = new ScriptBundle("~/bundles/jquery");
             jqueryBundle.Include("~/Scripts/jquery-{version}.js");
             jqueryBundle.Transforms.Add(jsTransformer);
@@ -50,3 +57,4 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS
         }
     }
 }
+

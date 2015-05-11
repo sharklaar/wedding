@@ -24,7 +24,14 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Marc & Natalie";
+
+            return View();
+        }
+
+        public ActionResult WeddingList()
+        {
+            ViewBag.Message = "Wedding List";
 
             return View();
         }
