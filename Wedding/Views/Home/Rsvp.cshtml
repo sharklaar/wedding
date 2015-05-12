@@ -12,14 +12,14 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal guest-list">
         <h4>GuestList</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         @for (var i = 0; i < Model.Guests.Count; i++)
         {
-            <div class="form-horizontal">
+            <div class="form-horizontal guest">
                 <h4>@Model.Guests[i].Name</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -31,9 +31,9 @@
 
                 @if (Model.Guests[i].CeremonyPermitted)
                 {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Guests[i].AttendingCeremony, "Attending the ceremony?", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
+                    <div class="form-group attending-group">
+                        @Html.LabelFor(model => model.Guests[i].AttendingCeremony, "Attending the ceremony?", htmlAttributes: new { @class = "control-label attending" })
+                        <div class="checkbox-container">
                             <div class="checkbox ceremony">
                                 @Html.EditorFor(model => model.Guests[i].AttendingCeremony)
                                 @Html.ValidationMessageFor(model => model.Guests[i].AttendingCeremony, "", new { @class = "text-danger" })
@@ -44,9 +44,9 @@
 
                 @if (Model.Guests[i].MealPermitted)
                 {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Guests[i].AttendingMeal, "Attending the Wedding Breakfast?", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
+                    <div class="form-group attending-group">
+                        @Html.LabelFor(model => model.Guests[i].AttendingMeal, "Attending the Wedding Breakfast?", htmlAttributes: new { @class = "control-label attending" })
+                        <div class="checkbox-container">
                             <div class="checkbox meal">
                                 @Html.EditorFor(model => model.Guests[i].AttendingMeal)
                                 @Html.ValidationMessageFor(model => model.Guests[i].AttendingMeal, "", new { @class = "text-danger" })
@@ -57,9 +57,9 @@
 
                 @if (Model.Guests[i].ReceptionPermitted)
                 {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Guests[i].AttendingReception, "Attending the reception?", htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
+                    <div class="form-group attending-group">
+                        @Html.LabelFor(model => model.Guests[i].AttendingReception, "Attending the reception?", htmlAttributes: new { @class = "control-label attending" })
+                        <div class="checkbox-container">
                             <div class="checkbox reception">
                                 @Html.EditorFor(model => model.Guests[i].AttendingReception)
                                 @Html.ValidationMessageFor(model => model.Guests[i].AttendingReception, "", new { @class = "text-danger" })
@@ -70,9 +70,9 @@
 
                 @if (Model.Guests[i].MealPermitted)
                 {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Guests[i].Starter, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10 meal-option">
+                    <div class="form-group meal-option-group">
+                        @Html.LabelFor(model => model.Guests[i].Starter, htmlAttributes: new { @class = "control-label meal-option" })
+                        <div class="meal-option">
                             @{
                                 var selectedStarter = "Please select a starter";
                                 if (!string.IsNullOrEmpty(Model.Guests[i].Starter))
@@ -87,9 +87,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Guests[i].Main, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10 meal-option">
+                    <div class="form-group meal-option-group">
+                        @Html.LabelFor(model => model.Guests[i].Main, htmlAttributes: new { @class = "control-label meal-option" })
+                        <div class="meal-option">
                             @{
                                 var selectedMain = "Please select a main";
                                 if (!string.IsNullOrEmpty(Model.Guests[i].Main))
@@ -103,9 +103,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Guests[i].Dessert, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10 meal-option">
+                    <div class="form-group meal-option-group">
+                        @Html.LabelFor(model => model.Guests[i].Dessert, htmlAttributes: new { @class = "control-label meal-option" })
+                        <div class="meal-option">
                             @{
                                 var selectedDessert = "Please select a dessert";
                                 if (!string.IsNullOrEmpty(Model.Guests[i].Dessert))

@@ -98,6 +98,7 @@ label.control-label {
 .check-box {
     &.input {
         display: inline-block;
+        margin-left: 0;
     }
 
 
@@ -105,4 +106,51 @@ label.control-label {
 
 .meal-option {
     padding-top: 7px;
+}
+
+.form-horizontal.guest-list {
+    text-align: center;
+}
+
+.form-horizontal.guest {
+    display: inline-block;
+    width: 40%;
+    margin: 20px auto;
+    border: 1px solid black;
+    padding: 15px;
+    background-color: #FFDAB9;    
+    min-width: 385px;
+
+}
+
+.control-label.meal-option {
+    width: 60%;
+    text-align: left;
+    display: inline-block;
+}
+
+div.meal-option {
+    display: inline-block;
+}
+
+.form-group .col-md-10 {
+    width: 20%;
+}
+
+.checkbox-container {
+    display: inline-block;
+    width: 15%;
+    vertical-align: bottom;
+}
+.form-horizontal .form-group.attending-group{
+    margin: 0;
+    text-align: left;
+    .checkbox input[type="checkbox"]
+    {
+        text-align: right;
+        margin-left: 0;
+    }
+}
+@media (max-width: 990) {
+
 }
