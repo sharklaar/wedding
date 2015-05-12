@@ -73,8 +73,15 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Guests[i].Starter, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10 meal-option">
-                            @Html.DropDownListFor(model => model.Guests[i].Starter, Model.Guests[i].StarterOptions, "Please select a starter",
-                            new { disabled = "disabled", @class = "starter-dropdown disabled" })
+                            @{
+                                var selectedStarter = "Please select a starter";
+                                if (!string.IsNullOrEmpty(Model.Guests[i].Starter))
+                                {
+                                    selectedStarter = Model.Guests[i].Starter;
+                                }
+                            }
+                            @Html.DropDownListFor(model => model.Guests[i].Starter, Model.Guests[i].StarterOptions, selectedStarter,
+                                new { disabled = "disabled", @class = "starter-dropdown disabled" })
 
                             @Html.ValidationMessageFor(model => model.Guests[i].Starter, "", new { @class = "text-danger" })
                         </div>
@@ -83,8 +90,15 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Guests[i].Main, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10 meal-option">
-                            @Html.DropDownListFor(model => model.Guests[i].Main, Model.Guests[i].MainOptions, "Please select a main course",
-                            new { disabled = "disabled", @class = "main-dropdown disabled" })
+                            @{
+                                var selectedMain = "Please select a main";
+                                if (!string.IsNullOrEmpty(Model.Guests[i].Main))
+                                {
+                                    selectedMain = Model.Guests[i].Main;
+                                }
+                            }
+                            @Html.DropDownListFor(model => model.Guests[i].Main, Model.Guests[i].MainOptions, selectedMain,
+                                new { disabled = "disabled", @class = "main-dropdown disabled" })
                             @Html.ValidationMessageFor(model => model.Guests[i].Main, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -92,8 +106,15 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Guests[i].Dessert, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10 meal-option">
-                            @Html.DropDownListFor(model => model.Guests[i].Dessert, Model.Guests[i].DessertOptions, "Please select a dessert",
-                            new { disabled = "disabled", @class = "dessert-dropdown disabled" })
+                            @{
+                                var selectedDessert = "Please select a dessert";
+                                if (!string.IsNullOrEmpty(Model.Guests[i].Dessert))
+                                {
+                                    selectedDessert = Model.Guests[i].Dessert;
+                                }
+                            }
+                            @Html.DropDownListFor(model => model.Guests[i].Dessert, Model.Guests[i].DessertOptions, selectedDessert,
+                                new { disabled = "disabled", @class = "dessert-dropdown disabled" })
                             @Html.ValidationMessageFor(model => model.Guests[i].Dessert, "", new { @class = "text-danger" })
                         </div>
                     </div>
