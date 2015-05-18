@@ -80,11 +80,72 @@ form.usernameForm input {
 }
 label.control-label {
   display: inline-block;
+  width: 80%;
+  vertical-align: middle;
 }
 .check-box.input {
   display: inline-block;
+  margin-left: 0;
+  vertical-align: middle;
 }
 .meal-option {
   padding-top: 7px;
+}
+.form-horizontal.guest-list {
+  text-align: center;
+}
+.form-horizontal.guest {
+  display: inline-block;
+  width: 40%;
+  margin: 20px auto;
+  border: 1px solid black;
+  padding: 15px;
+  background-color: #FFDAB9;
+  min-width: 270px;
+}
+.control-label.meal-option {
+  width: 20%;
+  text-align: left;
+  display: inline-block;
+}
+div.meal-option {
+  display: inline-block;
+  width: 65%;
+  vertical-align: middle;
+}
+div.meal-option select {
+  width: 100%;
+}
+.checkbox-container {
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+}
+.form-horizontal .form-group.attending-group {
+  margin: 0;
+  text-align: left;
+}
+.form-horizontal .form-group.attending-group .checkbox {
+  padding-top: 0;
+}
+.form-horizontal .form-group.attending-group .checkbox input[type="checkbox"] {
+  text-align: right;
+  margin-left: 0;
+  padding-top: 0;
+}
+input.submit-guests {
+  width: 100%;
+}
+.submit-button-container {
+  text-align: center;
+}
+.rsvp-page h4 {
+  font-size: 4.5rem;
+}
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    text-align: left!important;
+    padding-top: 0!important;
+  }
 }
 /*# sourceMappingURL=Site.css.map */

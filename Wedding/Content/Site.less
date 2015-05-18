@@ -93,12 +93,15 @@ form.usernameForm {
 
 label.control-label {
     display: inline-block;
+    width: 80%;
+    vertical-align: middle;
 }
 
 .check-box {
     &.input {
         display: inline-block;
         margin-left: 0;
+        vertical-align: middle;
     }
 
 
@@ -119,38 +122,65 @@ label.control-label {
     border: 1px solid black;
     padding: 15px;
     background-color: #FFDAB9;    
-    min-width: 290px;
+    min-width: 270px;
 
 }
 
 .control-label.meal-option {
-    width: 60%;
+    width: 20%;
     text-align: left;
     display: inline-block;
 }
 
 div.meal-option {
     display: inline-block;
+    width: 65%;
+    vertical-align: middle;
+    select {
+        width: 100%;
+    }
 }
 
-.form-group .col-md-10 {
-    width: 20%;
-}
 
 .checkbox-container {
     display: inline-block;
     width: 15%;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 .form-horizontal .form-group.attending-group{
     margin: 0;
     text-align: left;
+    .checkbox {
+        padding-top: 0;
+    }
     .checkbox input[type="checkbox"]
     {
         text-align: right;
         margin-left: 0;
+        padding-top: 0;
+    }
+}
+
+input.submit-guests {
+    width: 100%;
+}
+
+.submit-button-container {
+    text-align: center;
+}
+
+.rsvp-page {
+    h4 {
+        font-size: 4.5rem;
     }
 }
 @media (max-width: 990) {
 
+}
+
+@media (min-width: 768px) {
+    .form-horizontal .control-label {
+        text-align: left!important;
+        padding-top: 0!important;
+    }
 }

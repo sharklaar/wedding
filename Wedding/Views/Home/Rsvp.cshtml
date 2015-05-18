@@ -4,138 +4,139 @@
     ViewBag.Title = "Rsvp";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="rsvp-page">
+    <h2>Rsvp</h2>
 
-<h2>Rsvp</h2>
 
+    @using (Html.BeginForm("SubmitGuests", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("SubmitGuests", "Home", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+        <div class="form-horizontal guest-list">
+            <h4>GuestList</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-horizontal guest-list">
-        <h4>GuestList</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @for (var i = 0; i < Model.Guests.Count; i++)
+            {
+                <div class="form-horizontal guest">
+                    <h4>@Model.Guests[i].Name</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Guests[i].Id)
+                    @Html.HiddenFor(model => model.Guests[i].Name)
+                    @Html.HiddenFor(model => model.Guests[i].CeremonyPermitted)
+                    @Html.HiddenFor(model => model.Guests[i].MealPermitted)
+                    @Html.HiddenFor(model => model.Guests[i].ReceptionPermitted)
 
-        @for (var i = 0; i < Model.Guests.Count; i++)
-        {
-            <div class="form-horizontal guest">
-                <h4>@Model.Guests[i].Name</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.Guests[i].Id)
-                @Html.HiddenFor(model => model.Guests[i].Name)
-                @Html.HiddenFor(model => model.Guests[i].CeremonyPermitted)
-                @Html.HiddenFor(model => model.Guests[i].MealPermitted)
-                @Html.HiddenFor(model => model.Guests[i].ReceptionPermitted)
-
-                @if (Model.Guests[i].CeremonyPermitted)
-                {
-                    <div class="form-group attending-group">
-                        @Html.LabelFor(model => model.Guests[i].AttendingCeremony, "Attending the ceremony?", htmlAttributes: new { @class = "control-label attending" })
-                        <div class="checkbox-container">
-                            <div class="checkbox ceremony">
-                                @Html.EditorFor(model => model.Guests[i].AttendingCeremony)
-                                @Html.ValidationMessageFor(model => model.Guests[i].AttendingCeremony, "", new { @class = "text-danger" })
+                    @if (Model.Guests[i].CeremonyPermitted)
+                    {
+                        <div class="form-group attending-group">
+                            @Html.LabelFor(model => model.Guests[i].AttendingCeremony, "Attending the ceremony?", htmlAttributes: new { @class = "control-label attending" })
+                            <div class="checkbox-container">
+                                <div class="checkbox ceremony">
+                                    @Html.EditorFor(model => model.Guests[i].AttendingCeremony)
+                                    @Html.ValidationMessageFor(model => model.Guests[i].AttendingCeremony, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
 
-                @if (Model.Guests[i].MealPermitted)
-                {
-                    <div class="form-group attending-group">
-                        @Html.LabelFor(model => model.Guests[i].AttendingMeal, "Attending the Wedding Breakfast?", htmlAttributes: new { @class = "control-label attending" })
-                        <div class="checkbox-container">
-                            <div class="checkbox meal">
-                                @Html.EditorFor(model => model.Guests[i].AttendingMeal)
-                                @Html.ValidationMessageFor(model => model.Guests[i].AttendingMeal, "", new { @class = "text-danger" })
+                    @if (Model.Guests[i].MealPermitted)
+                    {
+                        <div class="form-group attending-group">
+                            @Html.LabelFor(model => model.Guests[i].AttendingMeal, "Attending the Wedding Breakfast?", htmlAttributes: new { @class = "control-label attending" })
+                            <div class="checkbox-container">
+                                <div class="checkbox meal">
+                                    @Html.EditorFor(model => model.Guests[i].AttendingMeal)
+                                    @Html.ValidationMessageFor(model => model.Guests[i].AttendingMeal, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
 
-                @if (Model.Guests[i].ReceptionPermitted)
-                {
-                    <div class="form-group attending-group">
-                        @Html.LabelFor(model => model.Guests[i].AttendingReception, "Attending the reception?", htmlAttributes: new { @class = "control-label attending" })
-                        <div class="checkbox-container">
-                            <div class="checkbox reception">
-                                @Html.EditorFor(model => model.Guests[i].AttendingReception)
-                                @Html.ValidationMessageFor(model => model.Guests[i].AttendingReception, "", new { @class = "text-danger" })
+                    @if (Model.Guests[i].ReceptionPermitted)
+                    {
+                        <div class="form-group attending-group">
+                            @Html.LabelFor(model => model.Guests[i].AttendingReception, "Attending the reception?", htmlAttributes: new { @class = "control-label attending" })
+                            <div class="checkbox-container">
+                                <div class="checkbox reception">
+                                    @Html.EditorFor(model => model.Guests[i].AttendingReception)
+                                    @Html.ValidationMessageFor(model => model.Guests[i].AttendingReception, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
 
-                @if (Model.Guests[i].MealPermitted)
-                {
-                    <div class="form-group meal-option-group">
-                        @Html.LabelFor(model => model.Guests[i].Starter, htmlAttributes: new { @class = "control-label meal-option" })
-                        <div class="meal-option">
-                            @{
-                                var selectedStarter = "Please select a starter";
-                                if (!string.IsNullOrEmpty(Model.Guests[i].Starter))
-                                {
-                                    selectedStarter = Model.Guests[i].Starter;
+                    @if (Model.Guests[i].MealPermitted)
+                    {
+                        <div class="form-group meal-option-group">
+                            @Html.LabelFor(model => model.Guests[i].Starter, htmlAttributes: new { @class = "control-label meal-option" })
+                            <div class="meal-option">
+                                @{
+                        var selectedStarter = "Please select a starter";
+                        if (!string.IsNullOrEmpty(Model.Guests[i].Starter))
+                        {
+                            selectedStarter = Model.Guests[i].Starter;
+                        }
                                 }
-                            }
-                            @Html.DropDownListFor(model => model.Guests[i].Starter, Model.Guests[i].StarterOptions, selectedStarter,
+                                @Html.DropDownListFor(model => model.Guests[i].Starter, Model.Guests[i].StarterOptions, selectedStarter,
                                 new { disabled = "disabled", @class = "starter-dropdown disabled" })
 
-                            @Html.ValidationMessageFor(model => model.Guests[i].Starter, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Guests[i].Starter, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group meal-option-group">
-                        @Html.LabelFor(model => model.Guests[i].Main, htmlAttributes: new { @class = "control-label meal-option" })
-                        <div class="meal-option">
-                            @{
-                                var selectedMain = "Please select a main";
-                                if (!string.IsNullOrEmpty(Model.Guests[i].Main))
-                                {
-                                    selectedMain = Model.Guests[i].Main;
+                        <div class="form-group meal-option-group">
+                            @Html.LabelFor(model => model.Guests[i].Main, htmlAttributes: new { @class = "control-label meal-option" })
+                            <div class="meal-option">
+                                @{
+                        var selectedMain = "Please select a main";
+                        if (!string.IsNullOrEmpty(Model.Guests[i].Main))
+                        {
+                            selectedMain = Model.Guests[i].Main;
+                        }
                                 }
-                            }
-                            @Html.DropDownListFor(model => model.Guests[i].Main, Model.Guests[i].MainOptions, selectedMain,
+                                @Html.DropDownListFor(model => model.Guests[i].Main, Model.Guests[i].MainOptions, selectedMain,
                                 new { disabled = "disabled", @class = "main-dropdown disabled" })
-                            @Html.ValidationMessageFor(model => model.Guests[i].Main, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Guests[i].Main, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group meal-option-group">
-                        @Html.LabelFor(model => model.Guests[i].Dessert, htmlAttributes: new { @class = "control-label meal-option" })
-                        <div class="meal-option">
-                            @{
-                                var selectedDessert = "Please select a dessert";
-                                if (!string.IsNullOrEmpty(Model.Guests[i].Dessert))
-                                {
-                                    selectedDessert = Model.Guests[i].Dessert;
+                        <div class="form-group meal-option-group">
+                            @Html.LabelFor(model => model.Guests[i].Dessert, htmlAttributes: new { @class = "control-label meal-option" })
+                            <div class="meal-option">
+                                @{
+                        var selectedDessert = "Please select a dessert";
+                        if (!string.IsNullOrEmpty(Model.Guests[i].Dessert))
+                        {
+                            selectedDessert = Model.Guests[i].Dessert;
+                        }
                                 }
-                            }
-                            @Html.DropDownListFor(model => model.Guests[i].Dessert, Model.Guests[i].DessertOptions, selectedDessert,
+                                @Html.DropDownListFor(model => model.Guests[i].Dessert, Model.Guests[i].DessertOptions, selectedDessert,
                                 new { disabled = "disabled", @class = "dessert-dropdown disabled" })
-                            @Html.ValidationMessageFor(model => model.Guests[i].Dessert, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Guests[i].Dessert, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                }
+                    }
 
-            </div>
-        }
+                </div>
+            }
 
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" formaction='@Url.Action("SubmitGuests")' />
         </div>
+        <div class="form-group">
+            <div class="submit-button-container">
+                <input type="submit" value="Send your RSVP" class="btn btn-default submit-guests" formaction='@Url.Action("SubmitGuests")' />
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to Homepage", "Index")
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to Homepage", "Index")
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquery")
+    }
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jquery")
-}
