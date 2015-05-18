@@ -12,30 +12,30 @@ namespace Wedding.Models
         {
             StarterOptions = new SelectList(
                 new[]{
-                    new  { Text = "Vegetable Soup", Value = "soup" }, 
-                    new  { Text = "Melon Balls", Value = "balls" },
-                    new  { Text = "Prawn Cocktail", Value = "cocktail" },
-                    new  { Text = "Breaded Garlic Mushrooms", Value = "shrooms" }
+                    new  { Text = "Vegetable Soup", Value = "Vegetable Soup" }, 
+                    new  { Text = "Melon Balls", Value = "Melon Balls" },
+                    new  { Text = "Prawn Cocktail", Value = "Prawn Cocktail" },
+                    new  { Text = "Breaded Garlic Mushrooms", Value = "Garlic Mushrooms" }
                 },
                 "Value",
                 "Text");
 
             MainOptions = new SelectList(
                 new[]{
-                    new  { Text = "Roast Beef", Value = "beef" }, 
-                    new  { Text = "Roast Pork", Value = "pork" },
-                    new  { Text = "Roast Turkey", Value = "turkey" },
-                    new  { Text = "Vegetable Wellington", Value = "welly" }
+                    new  { Text = "Roast Beef", Value = "Roast Beef" }, 
+                    new  { Text = "Roast Pork", Value = "Roast Pork" },
+                    new  { Text = "Roast Turkey", Value = "Roast Turkey" },
+                    new  { Text = "Vegetable Wellington", Value = "Vegetable Wellington" }
                 },
                 "Value",
                 "Text");
 
             DessertOptions = new SelectList(
                 new[]{
-                    new  { Text = "Apple Crumble w/Custard", Value = "crumble" }, 
-                    new  { Text = "Raspberry Pavlova", Value = "pavlova" },
-                    new  { Text = "Chocolate Fudge Cake", Value = "fudge" },
-                    new  { Text = "Ice Cream", Value = "iceCream" }
+                    new  { Text = "Apple Crumble w/Custard", Value = "Apple Crumble" }, 
+                    new  { Text = "Raspberry Pavlova", Value = "Raspberry Pavlova" },
+                    new  { Text = "Chocolate Fudge Cake", Value = "Fudge Cake" },
+                    new  { Text = "Ice Cream", Value = "Ice Cream" }
                 },
                 "Value",
                 "Text");
