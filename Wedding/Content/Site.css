@@ -6,7 +6,8 @@ body h1,
 body h2,
 body h3,
 body h4 {
-  font-family: 'Parisienne';
+  font-family: 'Parisienne' !important;
+  text-align: center;
 }
 body h1 {
   text-align: center;
@@ -141,6 +142,39 @@ input.submit-guests {
 }
 .rsvp-page h4 {
   font-size: 4.5rem;
+}
+.wedding-list-page.jumbotron h2,
+.wedding-list-page.jumbotron p {
+  font-family: 'Parisienne';
+  text-align: center;
+}
+.wedding-list-page.jumbotron h2 {
+  font-size: 5.7rem;
+}
+.wedding-list-page.jumbotron p {
+  font-size: 2.9rem;
+}
+.menu-page.jumbotron p {
+  font-size: 1.7rem;
+}
+.menu-page.jumbotron h4 {
+  font-size: 2.5rem;
+}
+.menu-page.jumbotron h3 {
+  font-size: 3.3rem;
+}
+.home-page.jumbotron:before {
+  display: block;
+  width: 197px;
+  height: 255px;
+  content: "";
+  position: absolute;
+  left: 75px;
+  top: 55px;
+  background: url('images/silhouette.png') 0 0 no-repeat;
+}
+.home-page.jumbotron h2 {
+  font-size: 2.2rem;
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {

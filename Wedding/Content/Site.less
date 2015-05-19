@@ -3,7 +3,8 @@
     padding-bottom: 20px;
 
     h1, h2, h3, h4 {
-        font-family: 'Parisienne';
+        font-family: 'Parisienne'!important;
+        text-align: center;
     }
 
     h1 {
@@ -172,6 +173,52 @@ input.submit-guests {
 .rsvp-page {
     h4 {
         font-size: 4.5rem;
+    }
+}
+
+.wedding-list-page.jumbotron {
+    h2, p{
+        font-family: 'Parisienne';
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 5.7rem;
+    }
+
+    p {
+        font-size: 2.9rem;
+    }
+}
+
+.menu-page.jumbotron {
+    p {
+        font-size: 1.7rem;
+    }
+
+    h4 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 3.3rem;
+    }
+}
+
+.home-page.jumbotron {
+    &:before {
+        display: block;
+        width: 197px;
+        height: 255px;
+        content: "";
+        position: absolute;
+        left: 75px;
+        top: 55px;
+        background: url('images/silhouette.png') 0 0 no-repeat;
+    }
+
+    h2 {
+        font-size: 2.2rem;
     }
 }
 @media (max-width: 990) {
