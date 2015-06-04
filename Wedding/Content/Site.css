@@ -176,6 +176,16 @@ input.submit-guests {
 .home-page.jumbotron h2 {
   font-size: 2.2rem;
 }
+.contact-page {
+  text-align: center;
+}
+.contact-page p {
+  font-family: 'Parisienne' !important;
+  font-size: 2.3rem;
+}
+.contact-page a {
+  display: block;
+}
 @media (min-width: 768px) {
   .form-horizontal .control-label {
     text-align: left!important;
