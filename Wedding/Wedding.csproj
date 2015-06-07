@@ -373,6 +373,7 @@
     <Content Include="Views\Home\SubmitGuests.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\WeddingList.cshtml" />
+    <Content Include="Views\Home\WeddingDay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

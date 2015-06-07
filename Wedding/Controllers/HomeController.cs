@@ -36,6 +36,12 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
             return View();
         }
 
+        public ActionResult WeddingDay()
+        {
+            ViewBag.Message = "Wedding Day Information";
+            return View();
+        }
+
         public ActionResult Rsvp(GuestList guestList)
         {
             if (guestList == null || guestList.Username == null)
