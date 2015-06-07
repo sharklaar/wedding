@@ -225,6 +225,10 @@ input.submit-guests {
             top: 0;
             background: url('/Content/images/silhouette.png') 0 0 no-repeat;
             background-size: 70%;
+
+            @media (max-width: 767px) {
+                display: none;
+            }
         }
 
         &:after {
@@ -243,6 +247,10 @@ input.submit-guests {
             transform: scaleX(-1);
             filter: FlipH;
             -ms-filter: "FlipH";
+            
+            @media (max-width: 767px) {
+                display: none;
+            }
         }
     }
 
@@ -253,6 +261,7 @@ input.submit-guests {
 
 .wedding-day-page {
     text-align: center;
+
     iframe {
         max-width: 100%;
     }
@@ -266,6 +275,7 @@ input.submit-guests {
 
 .thank-you-page {
     text-align: center;
+
     li {
         list-style-type: none;
     }

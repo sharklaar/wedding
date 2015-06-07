@@ -182,6 +182,11 @@ input.submit-guests {
   background: url('/Content/images/silhouette.png') 0 0 no-repeat;
   background-size: 70%;
 }
+@media (max-width: 767px) {
+  .home-page.jumbotron h1:before {
+    display: none;
+  }
+}
 .home-page.jumbotron h1:after {
   display: block;
   width: 197px;
@@ -198,6 +203,11 @@ input.submit-guests {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
+}
+@media (max-width: 767px) {
+  .home-page.jumbotron h1:after {
+    display: none;
+  }
 }
 .home-page.jumbotron h2 {
   font-size: 2.2rem;
