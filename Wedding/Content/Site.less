@@ -3,7 +3,7 @@
     padding-bottom: 20px;
 
     h1, h2, h3, h4 {
-        font-family: 'Parisienne'!important;
+        font-family: 'Parisienne' !important;
         text-align: center;
     }
 
@@ -77,9 +77,11 @@ form.usernameForm {
 
 .menu-page {
     text-align: center;
+
     h2, h3, h4 {
         font-weight: bold;
     }
+
     h2 {
         margin: 15px 0;
         font-size: 3rem;
@@ -104,8 +106,6 @@ label.control-label {
         margin-left: 0;
         vertical-align: middle;
     }
-
-
 }
 
 .meal-option {
@@ -122,9 +122,8 @@ label.control-label {
     margin: 20px auto;
     border: 1px solid black;
     padding: 15px;
-    background-color: #FFDAB9;    
+    background-color: #FFDAB9;
     min-width: 270px;
-
 }
 
 .control-label.meal-option {
@@ -137,6 +136,7 @@ div.meal-option {
     display: inline-block;
     width: 65%;
     vertical-align: middle;
+
     select {
         width: 100%;
     }
@@ -148,14 +148,16 @@ div.meal-option {
     width: 15%;
     vertical-align: top;
 }
-.form-horizontal .form-group.attending-group{
+
+.form-horizontal .form-group.attending-group {
     margin: 0;
     text-align: left;
+
     .checkbox {
         padding-top: 0;
     }
-    .checkbox input[type="checkbox"]
-    {
+
+    .checkbox input[type="checkbox"] {
         text-align: right;
         margin-left: 0;
         padding-top: 0;
@@ -177,7 +179,7 @@ input.submit-guests {
 }
 
 .wedding-list-page.jumbotron {
-    h2, p{
+    h2, p {
         font-family: 'Parisienne';
         text-align: center;
     }
@@ -206,15 +208,41 @@ input.submit-guests {
 }
 
 .home-page.jumbotron {
-    &:before {
-        display: block;
-        width: 197px;
-        height: 255px;
-        content: "";
-        position: absolute;
-        left: 75px;
-        top: 55px;
-        background: url('images/silhouette.png') 0 0 no-repeat;
+    position: relative;
+
+    h1 {
+        width: 60%;
+        position: relative;
+        margin: 0 auto;
+        &:before {
+            display: block;
+            width: 197px;
+            height: 255px;
+            content: "";
+            position: absolute;
+            left: -37%;
+            top: 0;
+            background: url('/Content/images/silhouette.png') 0 0 no-repeat;
+            background-size: 70%;
+        }
+
+        &:after {
+            display: block;
+            width: 197px;
+            height: 255px;
+            content: "";
+            position: absolute;
+            right: -37%;
+            top: 0;
+            background: url('/Content/images/silhouette.png') 0 0 no-repeat;
+            background-size: 70%;
+                -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+        }
     }
 
     h2 {
@@ -222,28 +250,44 @@ input.submit-guests {
     }
 }
 
-.contact-page {
-    
-    text-align: center;
-    p {
-        font-family: 'Parisienne'!important;
-        font-size: 2.3rem;
-    }
-    a {
-        display: block;
-    }
-}
-
 .wedding-day-page {
     text-align: center;
 }
-@media (max-width: 990) {
 
+.jumbotron {
+    -moz-box-shadow: 2px 2px 9px 2px #777777;
+    -webkit-box-shadow: 2px 2px 9px 2px #777777;
+    box-shadow: 2px 2px 9px 2px #777777;
 }
 
-@media (min-width: 768px) {
-    .form-horizontal .control-label {
-        text-align: left!important;
-        padding-top: 0!important;
+@media (max-width: 767px) {
+    .home-page.jumbotron {
+        &:before {
+            display: none;
+        }
+
+        .contact-page {
+            text-align: center;
+
+            p {
+                font-family: 'Parisienne' !important;
+                font-size: 2.3rem;
+            }
+
+            a {
+                display: block;
+            }
+        }
+
+
     }
 }
+        @media (min-width: 768px) {
+            .form-horizontal .control-label {
+                text-align: left !important;
+                padding-top: 0 !important;
+            }
+            .navbar-brand {
+                display: none!important;
+            }
+        }
