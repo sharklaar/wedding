@@ -205,10 +205,19 @@ input.submit-guests {
 .wedding-day-page {
   text-align: center;
 }
+.wedding-day-page iframe {
+  max-width: 100%;
+}
 .jumbotron {
   -moz-box-shadow: 2px 2px 9px 2px #777777;
   -webkit-box-shadow: 2px 2px 9px 2px #777777;
   box-shadow: 2px 2px 9px 2px #777777;
+}
+.thank-you-page {
+  text-align: center;
+}
+.thank-you-page li {
+  list-style-type: none;
 }
 @media (max-width: 767px) {
   .home-page.jumbotron:before {
@@ -231,7 +240,7 @@ input.submit-guests {
     padding-top: 0 !important;
   }
   .navbar-brand {
-    display: none!important;
+    display: none !important;
   }
 }
 /*# sourceMappingURL=Site.css.map */

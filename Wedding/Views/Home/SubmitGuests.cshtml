@@ -5,13 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SubmitGuests</h2>
+<div class="thank-you-page jumbotron">
+    <div>
+        <h2>Thanks for your reply!</h2>
+        <p>Here's some more information about the wedding:</p>
+    </div>
 
-<div>
-    <h2>Thanks!</h2>
-    <p>You've sent us your reply, that means you're great. </p>
+    <ul>
+        <li>@Html.ActionLink("Wedding Breakfast Menu", "Menu", "Home")</li>
+        <li>@Html.ActionLink("Wedding List", "WeddingList", "Home")</li>
+        <li>@Html.ActionLink("Wedding Day Info", "WeddingDay", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
