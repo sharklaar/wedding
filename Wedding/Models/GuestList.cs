@@ -9,5 +9,6 @@ namespace Wedding.Models
     {
         public List<Guest> Guests { get; set; }
         public string Username { get; set; }
+        public string IntroText { get; set; }
     }
 }

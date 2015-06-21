@@ -53,7 +53,18 @@ namespace ASP.NET_MVC5_Bootstrap3_3_1_LESS.Controllers
 
             var guests = new GuestList();
             guests.Guests = helper.GetGuestsWithUsername(guestList.Username);
-           
+
+            guests.IntroText = "We would like to invite you to ";
+
+            if (guests.Guests[0].CeremonyPermitted)
+                guests.IntroText += "the ceremony, the wedding breakfast and the reception.";
+            else if (guests.Guests[0].MealPermitted)
+                guests.IntroText += "the wedding breakfast and the reception.";
+            else 
+                guests.IntroText += "our wedding reception.";
+
+            guests.IntroText += " Please indicate below whether you will be attending...";
+            
             return View(guests);
         }
 
